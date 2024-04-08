@@ -4,7 +4,7 @@ import FilterButton from "./components/FilterButton";
 import Todo from "./components/Todo";
 import { useState, useRef, useEffect } from "react";
 import { nanoid } from "nanoid";
-import React from 'react';
+import React from "react";
 import MapComponent from "./components/MapContent";
 
 const FILTER_MAP = {
@@ -18,7 +18,7 @@ const FILTER_NAMES = Object.keys(FILTER_MAP);
 function App(props) {
   function usePersistedState(key, defaultValue) {
     const [state, setState] = useState(
-      () => JSON.parse(localStorage.getItem(key)) || defaultValue
+      () => JSON.parse(localStorage.getItem(key)) || defaultValue,
     );
     useEffect(() => {
       localStorage.setItem(key, JSON.stringify(state));
@@ -43,23 +43,21 @@ function App(props) {
     // localStorage.setItem("tasks", JSON.stringify(updatedTasks));
   }
 
-  const taskList = tasks
-    ?.filter(FILTER_MAP[filter])
-    .map((task) => (
-      <Todo
-        id={task.id}
-        name={task.name}
-        completed={task.completed}
-        key={task.id}
-        latitude={task.location.latitude}
-        longitude={task.location.longitude}
-        location={task.location}
-        toggleTaskCompleted={toggleTaskCompleted}
-        photoedTask={photoedTask}
-        deleteTask={deleteTask}
-        editTask={editTask}
-      />
-    ));
+  const taskList = tasks?.filter(FILTER_MAP[filter]).map((task) => (
+    <Todo
+      id={task.id}
+      name={task.name}
+      completed={task.completed}
+      key={task.id}
+      // latitude={task.location.latitude}
+      // longitude={task.location.longitude}
+      location={task.location}
+      toggleTaskCompleted={toggleTaskCompleted}
+      photoedTask={photoedTask}
+      deleteTask={deleteTask}
+      editTask={editTask}
+    />
+  ));
 
   const filterList = FILTER_NAMES.map((name) => (
     <FilterButton
@@ -148,7 +146,7 @@ function App(props) {
     console.log(latitude, longitude);
     console.log(`Latitude: ${latitude}°, Longitude: ${longitude}°`);
     console.log(
-      `Try here: https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`
+      `Try here: https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`,
     );
     locateTask(lastInsertedId, {
       latitude: latitude,
@@ -182,7 +180,6 @@ function App(props) {
         aria-labelledby="list-heading"
       >
         {taskList}
-        
       </ul>
     </div>
   );
