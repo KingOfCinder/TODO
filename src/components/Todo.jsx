@@ -6,7 +6,6 @@ import { addPhoto, GetPhotoSrc } from "../db.jsx";
 import MapComponent from "./MapContent.jsx";
 import Weather from "./Weather.jsx";
 
-
 function Todo(props) {
   const [isEditing, setEditing] = useState(false);
   const [newName, setNewName] = useState("");
@@ -72,7 +71,6 @@ function Todo(props) {
               (Lat: {props.location.latitude}, Lon: {props.location.longitude})
             </span>
           )}
-           
         </label>
       </div>
       <div className="btn-group">
@@ -81,7 +79,7 @@ function Todo(props) {
         </button>
         <Popup // à 3
           trigger={
-            <button type="button" className="btn">
+            <button type="button" className="btn" onClick={close}>
               {" "}
               Take Photo{" "}
             </button>
@@ -174,7 +172,7 @@ const WebcamCapture = ({ id, photoedTask, close }) => {
       setImgSrc(imageSrc);
       console.log("capture", imageSrc.length, id);
     },
-    [webcamRef, setImgSrc]
+    [webcamRef, setImgSrc],
   );
 
   const savePhoto = (id, imgSrc) => {
