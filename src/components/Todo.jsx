@@ -79,7 +79,7 @@ function Todo(props) {
         </button>
         <Popup // à 3
           trigger={
-            <button type="button" className="btn" onClick={close}>
+            <button type="button" className="btn">
               {" "}
               Take Photo{" "}
             </button>
