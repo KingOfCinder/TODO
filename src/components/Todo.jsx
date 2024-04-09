@@ -206,7 +206,10 @@ const WebcamCapture = ({ id, photoedTask, close }) => {
           <button
             type="button"
             className="btn"
-            onClick={() => savePhoto(id, imgSrc)}
+            onClick={() => {
+              savePhoto(id, imgSrc);
+              close();
+            }}
           >
             Save Photo
           </button>
