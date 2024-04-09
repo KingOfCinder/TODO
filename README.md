@@ -1,6 +1,6 @@
 # Readme
 ### Step1: Open Vercel's web site,choose "Add new project".
-![read1](/img/read1.png)
+![read1](/src/img/read1.png)
 ### Step2: Click "Import Third-Party Git Repositroy".
 ![read2](/img/read2.png)
 ### Step3: Clone the Github URL, Click "continue".
