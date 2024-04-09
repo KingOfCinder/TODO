@@ -4,17 +4,6 @@ import App from "./App.jsx";
 import "./styles.css";
 
 const DATA = JSON.parse(localStorage.getItem("tasks")) || [];
-// [
-//   {
-//     id: "todo-0",
-//     name: "Eat",
-//     completed: true,
-//     location: { altitude: 0, longitude: 0, error: "##" },
-//   },
-//   // { id: "todo-1", name: "Sleep", completed: false },
-//   // { id: "todo-2", name: "Repeat", completed: false },
-// ];
-
 console.log({ DATA });
 
 if ("serviceWorker" in navigator) {
@@ -33,5 +22,5 @@ if ("serviceWorker" in navigator) {
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <App tasks={DATA} />
-  </React.StrictMode>
+  </React.StrictMode>,
 );

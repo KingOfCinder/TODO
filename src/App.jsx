@@ -71,7 +71,6 @@ function App(props) {
   function deleteTask(id) {
     const remainingTasks = tasks.filter((task) => id !== task.id);
     setTasks(remainingTasks);
-    // localStorage.setItem("tasks", JSON.stringify(remainingTasks));
   }
 
   function addTask(name) {
@@ -89,32 +88,26 @@ function App(props) {
 
   function editTask(id, newName) {
     const editedTaskList = tasks.map((task) => {
-      // if this task has the same ID as the edited task
       if (id === task.id) {
-        // Copy the task and update its name
         return { ...task, name: newName };
       }
-      // Return the original task if it's not the edited task
+
       return task;
     });
     setTasks(editedTaskList);
-    // localStorage.setItem("tasks", JSON.stringify(editedTaskList));
   }
 
   function locateTask(id, location) {
     console.log("locate Task", id, " before");
     console.log(location, tasks);
     const locatedTaskList = tasks.map((task) => {
-      // if this task has the same ID as the edited task
       if (id === task.id) {
-        //
         return { ...task, location: location };
       }
       return task;
     });
     console.log(locatedTaskList);
     setTasks(locatedTaskList);
-    // localStorage.setItem("tasks", JSON.stringify(locatedTaskList));
   }
 
   function photoedTask(id) {
