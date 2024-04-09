@@ -128,7 +128,7 @@ function Todo(props) {
         >
           {(close) => (
             <div>
-              <ViewLocation />
+              <MapComponent />
               <Weather />
               <button type="button" className="btn" onClick={close}>
                 Back
